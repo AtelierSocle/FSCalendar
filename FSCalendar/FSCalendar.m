@@ -303,7 +303,9 @@ typedef NS_ENUM(NSUInteger, FSCalendarOrientation) {
     if (_needsAdjustingViewFrame) {
         _needsAdjustingViewFrame = NO;
         
-        if (CGSizeEqualToSize(_transitionCoordinator.cachedMonthSize, CGSizeZero)) {
+        //TODO: hotfix for relayout frame
+        if (!CGSizeEqualToSize(_transitionCoordinator.cachedMonthSize, self.frame.size)) {
+        //if (CGSizeEqualToSize(_transitionCoordinator.cachedMonthSize, CGSizeZero)) {
             _transitionCoordinator.cachedMonthSize = self.frame.size;
         }
         
